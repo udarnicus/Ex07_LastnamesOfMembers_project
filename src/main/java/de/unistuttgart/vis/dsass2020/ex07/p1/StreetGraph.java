@@ -51,7 +51,7 @@ public class StreetGraph extends WeightedGraph<JunctionDetails, StreetDetails> {
 	static double calcWeight(int src, int dst, StreetDetails metaData, StreetGraph g){
 		// weight is edge length (travel distance for edge)
 
-		double weight = metaData.length;
+		double weight = metaData.length * 60 / (metaData.maxspeed * 1.61 * 1000);
 		return weight;
 	}
 	

@@ -7,12 +7,12 @@ public class BirminghamFastestRoutes {
     public static void main(String[] args) {
         StreetGraph birminghamStreetGraph = GraphLoader.loadBirminghamStreetGraph();
         ShortestPath birminghamShortestPath = new ShortestPath(birminghamStreetGraph, 2744);
-        System.out.println("Shortest distance to Airport is: " + birminghamShortestPath.distanceTo(11683) + "m");
-        System.out.println("Shortest distance to Alabama Theater is: " + birminghamShortestPath.distanceTo(3373) + "m");
-        System.out.println("Shortest distance to University is: " + birminghamShortestPath.distanceTo(11913) + "m");
-        System.out.println("Shortest distance to Health Center is: " + birminghamShortestPath.distanceTo(5829) + "m");
+        System.out.println("Shortest time to Airport is: " + birminghamShortestPath.distanceTo(11683) + "min");
+        System.out.println("Shortest time to Alabama Theater is: " + birminghamShortestPath.distanceTo(3373) + "min");
+        System.out.println("Shortest time to University is: " + birminghamShortestPath.distanceTo(11913) + "min");
+        System.out.println("Shortest time to Health Center is: " + birminghamShortestPath.distanceTo(5829) + "min");
 
-        ArrayList<Integer> cityList = new ArrayList<Integer>();
+      /*  ArrayList<Integer> cityList = new ArrayList<Integer>();
         cityList.add(11683);
         cityList.add(3373);
         cityList.add(11913);
@@ -40,6 +40,6 @@ public class BirminghamFastestRoutes {
             }
             System.out.println("Time to city with id:" +  city + " is: " + time + " minutes");
 
-        }
+        }*/
     }
 }
