@@ -1,0 +1,7 @@
+
+z
+java:S4165!"dRemove this useless assignment; "street" already holds the assigned value along all execution paths.(ßŠ”¤
+y
+java:S14885"^Immediately return this expression instead of assigning it to the temporary variable "weight".(è„´Âşÿÿÿÿ
+A
+java:S11723"&Remove these unused method parameters.(Ó„÷üÿÿÿÿ
