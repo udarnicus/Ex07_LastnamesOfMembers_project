@@ -37,8 +37,8 @@ public class ShortestPath<N,E> implements IShortestPath<N,E> {
 
 	@Override
 	public void bellmanFord(IWeightedGraph<N, E> graph, int startnode) {
-		for(double path: shortestPaths){
-			path = Double.POSITIVE_INFINITY;
+		for(int i= 0; i<shortestPaths.length;i++){
+			shortestPaths[i] = Double.POSITIVE_INFINITY;
 		}
 		shortestPaths[startnode] = 0;
 
