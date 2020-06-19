@@ -84,7 +84,7 @@ public class ShortestPath<N,E> implements IShortestPath<N,E> {
 	@Override
 	public Iterable<IEdge<E>> pathTo(int destination) {
 		if(!existsPathTo(destination)){
-			throw new IllegalStateException();
+			return null;
 		}else if(hasNegativeCycle()){
 			throw new IllegalStateException();
 		}
