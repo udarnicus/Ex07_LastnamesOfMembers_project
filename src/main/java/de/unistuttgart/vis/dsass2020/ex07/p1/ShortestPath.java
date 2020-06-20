@@ -5,6 +5,17 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+
+
+/**
+ * This class is used to calculate the shortest paths with the bellmanford algorithm
+ *
+ * @author Mohamed Ben Salha, 3465244,  st167263;
+ * @author Radu Manea, 3465480, st166429;
+ * @author Lars Gillich, 3465778, st167614;
+ * @version 07.06.2020
+ */
+
 public class ShortestPath<N,E> implements IShortestPath<N,E> {
 
 	private final IWeightedGraph<N,E> graph;
@@ -35,6 +46,16 @@ public class ShortestPath<N,E> implements IShortestPath<N,E> {
 		bellmanFord(this.graph, this.startNode);
 	}
 
+
+	/**
+	 * Applies bellmanFord algorithm to a graph
+	 *
+	 * Saves shortest distances to every node in this.shortestPaths
+	 * Saves previous Node of every node in this.previousNode
+	 *
+	 * @param graph       the weighted graph
+	 * @param startnode the starting node
+	 */
 	@Override
 	public void bellmanFord(IWeightedGraph<N, E> graph, int startnode) {
 		for(int i= 0; i<shortestPaths.length;i++){
@@ -55,6 +76,12 @@ public class ShortestPath<N,E> implements IShortestPath<N,E> {
 
 	}
 
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @return true if there is a negative cycle
+	 */
 	@Override
 	public boolean hasNegativeCycle() {
 		Iterator<IEdge<E>> edgesIterator = graph.edgeIterator();
@@ -67,6 +94,12 @@ public class ShortestPath<N,E> implements IShortestPath<N,E> {
 		return false;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @param destination the destination node
+	 * @return
+	 */
 	@Override
 	public double distanceTo(int destination) {
 		if(hasNegativeCycle()){
@@ -75,12 +108,25 @@ public class ShortestPath<N,E> implements IShortestPath<N,E> {
 		return shortestPaths[destination];
 	}
 
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @param destination the destination node
+	 * @return
+	 */
+
 	@Override
 	public boolean existsPathTo(int destination) {
 		return shortestPaths[destination] != Double.POSITIVE_INFINITY;
 	}
 
-	//Problem: Negative Cycle in all Graph or only on the path back?
+
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @param destination the destination node
+	 * @return
+	 */
 	@Override
 	public Iterable<IEdge<E>> pathTo(int destination) {
 		if(!existsPathTo(destination)){
@@ -99,6 +145,13 @@ public class ShortestPath<N,E> implements IShortestPath<N,E> {
 		return edgePath;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @param src
+	 * @param dest
+	 * @return
+	 */
 	private IEdge<E> getEdge(int src, int dest){
 		Iterator<IEdge<E>> edgesIterator = graph.edgeIterator();
 		while(edgesIterator.hasNext()){
