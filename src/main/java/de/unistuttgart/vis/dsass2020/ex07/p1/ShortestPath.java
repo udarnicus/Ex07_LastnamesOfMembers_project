@@ -13,7 +13,7 @@ import java.util.LinkedList;
  * @author Mohamed Ben Salha, 3465244,  st167263;
  * @author Radu Manea, 3465480, st166429;
  * @author Lars Gillich, 3465778, st167614;
- * @version 07.06.2020
+ * @version 20.06.2020
  */
 
 public class ShortestPath<N,E> implements IShortestPath<N,E> {
@@ -146,7 +146,9 @@ public class ShortestPath<N,E> implements IShortestPath<N,E> {
 	}
 
 	/**
-	 * {@inheritDoc}
+	 * Returns IEdge Object based on a source and destination
+	 *
+	 * If there is no such edge, null will be returned
 	 *
 	 * @param src
 	 * @param dest
