@@ -1,7 +1,7 @@
 
-A
-java:S11723"&Remove these unused method parameters.(Σ„χόÿÿÿÿ
-t
-java:S14886"^Immediately return this expression instead of assigning it to the temporary variable "weight".(»μ
 z
 java:S4165!"dRemove this useless assignment; "street" already holds the assigned value along all execution paths.(ί”¤
+y
+java:S14885"^Immediately return this expression instead of assigning it to the temporary variable "weight".(θ„΄Βώÿÿÿÿ
+A
+java:S11723"&Remove these unused method parameters.(Σ„χόÿÿÿÿ

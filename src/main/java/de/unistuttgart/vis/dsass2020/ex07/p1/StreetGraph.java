@@ -3,10 +3,19 @@ package de.unistuttgart.vis.dsass2020.ex07.p1;
 import de.unistuttgart.vis.dsass2020.ex07.p1.MetaData.JunctionDetails;
 import de.unistuttgart.vis.dsass2020.ex07.p1.MetaData.StreetDetails;
 
+
+
+
 /**
  * WeightedGraph for modeling a transportation network.
  * Nodes represent junctions ({@link JunctionDetails}), 
  * and edges represent street segments ({@link StreetDetails}).
+ *
+ * @author Mohamed Ben Salha, 3465244,  st167263;
+ * @author Radu Manea, 3465480, st166429;
+ * @author Lars Gillich, 3465778, st167614;
+ * @version 20.06.2020
+ *
  */
 public class StreetGraph extends WeightedGraph<JunctionDetails, StreetDetails> {
 
@@ -49,7 +58,9 @@ public class StreetGraph extends WeightedGraph<JunctionDetails, StreetDetails> {
 	 * @return the weight for the edge
 	 */
 	static double calcWeight(int src, int dst, StreetDetails metaData, StreetGraph g){
-		// weight is edge length (travel distance for edge)
+		// the edgeweight is the distance of the weight divided by the maximum speed on the street, in order to get
+		// the time you need to drive on this edge. The maxspeed is converted from miles/hour to km/h by multipling
+		// by 1.61. The time is in minutes
 
 		double weight = metaData.length * 60 / (metaData.maxspeed * 1.61 * 1000);
 		return weight;
