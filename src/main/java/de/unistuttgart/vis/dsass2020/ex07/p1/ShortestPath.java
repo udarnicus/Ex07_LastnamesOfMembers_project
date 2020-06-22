@@ -58,6 +58,13 @@ public class ShortestPath<N,E> implements IShortestPath<N,E> {
 	 */
 	@Override
 	public void bellmanFord(IWeightedGraph<N, E> graph, int startnode) {
+		if(graph == null){
+			throw new NullPointerException();
+		}else if (startnode < 0 || startnode > graph.numberOfNodes()-1){
+			throw new IllegalArgumentException();
+		}
+
+
 		for(int i= 0; i<shortestPaths.length;i++){
 			shortestPaths[i] = Double.POSITIVE_INFINITY;
 		}
@@ -102,6 +109,10 @@ public class ShortestPath<N,E> implements IShortestPath<N,E> {
 	 */
 	@Override
 	public double distanceTo(int destination) {
+		if (destination < 0 || destination > graph.numberOfNodes()-1){
+			throw new IllegalArgumentException();
+		}
+
 		if(hasNegativeCycle()){
 			throw new IllegalStateException();
 		}
@@ -117,6 +128,10 @@ public class ShortestPath<N,E> implements IShortestPath<N,E> {
 
 	@Override
 	public boolean existsPathTo(int destination) {
+		if (destination < 0 || destination > graph.numberOfNodes()-1){
+			throw new IllegalArgumentException();
+		}
+
 		return shortestPaths[destination] != Double.POSITIVE_INFINITY;
 	}
 
@@ -155,6 +170,9 @@ public class ShortestPath<N,E> implements IShortestPath<N,E> {
 	 * @return
 	 */
 	private IEdge<E> getEdge(int src, int dest){
+		assert src > 0 || src < graph.numberOfNodes();
+		assert dest > 0 || dest < graph.numberOfNodes();
+
 		Iterator<IEdge<E>> edgesIterator = graph.edgeIterator();
 		while(edgesIterator.hasNext()){
 			IEdge<E> edge =  edgesIterator.next();
